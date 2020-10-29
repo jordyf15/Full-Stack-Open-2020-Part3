@@ -77,10 +77,16 @@ app.route('/api/persons/:id')
         name: req.body.name,
         number: req.body.number
     }
-    Contact.findByIdAndUpdate(req.params.id,updatedContact)
+    Contact.findByIdAndUpdate(req.params.id,updatedContact,{runValidators: true, context:'query'})
     .then(()=>{
+        console.log('valid')
         res.json(updatedContact);
     })
+    .catch((err)=>{
+        console.log('not valid');
+        res.json(err.message)
+    })
+   
 })
 app.use(errorHandler)
 app.use(unknownEndPoint)
