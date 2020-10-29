@@ -1,3 +1,4 @@
+/*eslint-env es6*/
 const mongoose = require('mongoose');
 const uniqueValidator=require('mongoose-unique-validator');
 const url=process.env.MONGODB_URL;

@@ -1,3 +1,4 @@
+/*eslint-env es6*/
 const mongoose = require('mongoose');
 
 if(process.argv.length<3){
